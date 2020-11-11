@@ -99,7 +99,7 @@ def run_neural_network():
                     label="Generator Loss")
                 plt.plot(
                     range(num_examples // step_bins),
-                    torch.Tensor(crit_losses[:num_examples]).view(-1, step_bins).mean(1),
+                    torch.Tensor(critic_losses[:num_examples]).view(-1, step_bins).mean(1),
                     label="Critic Loss")
                 plt.legend()
                 plt.show()
