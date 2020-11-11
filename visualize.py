@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 
-def show_tensor_images(image_tensor, num_images, size=(1, 28, 28)):
+def show_tensor_images(image_tensor, num_images=25, size=(1, 28, 28)):
     """
     Function for visualizing images: Given a tnsor of images, number of images, and
     size per image, plots and prints the images in a uniform grid.
