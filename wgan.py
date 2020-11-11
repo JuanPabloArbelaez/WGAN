@@ -120,9 +120,9 @@ class Critic(nn.Module):
         Parameters:
             image: a flattened image tensor with dimension (im_chan)
         """
-        print(f'The dimensions of the image to the crit is: \t{image.size()}\n')
+        #print(f'The dimensions of the image to the crit is: \t{image.size()}\n')
         crit_pred = self.crit(image)
-        print(f'The dimensions of the crit forward() is: \t{crit_pred.view(len(crit_pred), -1).size()}\n')
+        #print(f'The dimensions of the crit forward() is: \t{crit_pred.view(len(crit_pred), -1).size()}\n')
         return crit_pred.view(len(crit_pred), -1)
 
 
