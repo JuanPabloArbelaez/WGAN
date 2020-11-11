@@ -86,8 +86,8 @@ def run_neural_network():
 
             ## Visualization code
             if (cur_step % DISPLAY_STEP == 0) and (cur_step > 0):
-                gen_mean = sum(generator_losses[-DISPLAY_STEP:] / DISPLAY_STEP)
-                crit_mean = sum(critic_losses[-DISPLAY_STEP:] / DISPLAY_STEP)
+                gen_mean = (sum(generator_losses[-DISPLAY_STEP:]) / DISPLAY_STEP)
+                crit_mean = (sum(critic_losses[-DISPLAY_STEP:]) / DISPLAY_STEP)
                 print(f"Epoch: {epoch}  Generator loss: {gen_mean}  Critic loss: {crit_loss}")
                 show_tensor_images(fake)
                 show_tensor_images(real)
