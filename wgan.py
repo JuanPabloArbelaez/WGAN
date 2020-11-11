@@ -21,10 +21,10 @@ class Generator(nn.Module):
         self.z_dim = z_dim
         # Build Neural Network
         self.gen = nn.Sequential(
-            self.make_gen_block(z_dim, hidden_dim,*4),
+            self.make_gen_block(z_dim, hidden_dim*4),
             self.make_gen_block(hidden_dim*4, hidden_dim*2, kernel_size=4, stride=1),
             self.make_gen_block(hidden_dim*2, hidden_dim),
-            self.make_gen_block(hidden_dim, im_chan, kernle_size=4, final_layer=True),            
+            self.make_gen_block(hidden_dim, im_chan, kernel_size=4, final_layer=True),            
         )
 
     def make_gen_block(self, input_channels, output_channels, kernel_size=3, stride=2, final_layer=False):
@@ -130,7 +130,7 @@ def weights_init(m):
     if isinstance(m, nn.Conv2d) or isinstance(m, nn.ConvTranspose2d):
         torch.nn.init.normal_(m.weight, 0.0, 0.02)
     if isinstance(m, nn.BatchNorm2d):
-        torch.nn.init.normal_(m.wieght, 0.0, 0.2)
+        torch.nn.init.normal_(m.weight, 0.0, 0.2)
         torch.nn.init.normal_(m.bias, 0)
 
 
@@ -209,5 +209,5 @@ def get_crit_loss(crit_fake_pred, crit_real_pred, gp, c_lambda):
     Returns:
         crit_loss: a scalar for the critic's loss, accounting for the relevant factors
     """
-    crit_loss = torch.mean(crit_fake_pred - crit_real_pred + (c_lamda * gp))
+    crit_loss = torch.mean(crit_fake_pred - crit_real_pred + (c_lambda * gp))
     return crit_loss

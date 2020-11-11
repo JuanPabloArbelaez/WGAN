@@ -105,3 +105,6 @@ def run_neural_network():
                 plt.show()
             
             cur_step += 1
+
+if __name__ == "__main__":
+    run_neural_network()
